@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -24,5 +25,12 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public List<Producto> getAllProductos() {
         return productoRepository.findAll();
+    }
+
+    @Override
+    public Producto createProducto(Producto producto) {
+        producto.setFechaDeCreacion(LocalDate.now());
+        producto.setFechaActualizacion(LocalDate.now());
+        return productoRepository.save(producto);
     }
 }
