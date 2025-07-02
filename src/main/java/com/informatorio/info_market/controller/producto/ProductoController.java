@@ -29,4 +29,9 @@ public class ProductoController {
     public Producto createProducto(@RequestBody Producto producto){
         return productoService.createProducto(producto);
     }
+
+    @GetMapping("/{id}")
+    public Producto getProductoById(@PathVariable(required = false) UUID id){
+        return productoService.getProductoById(id);
+    }
 }
