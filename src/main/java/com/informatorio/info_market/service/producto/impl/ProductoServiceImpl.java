@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -32,5 +33,10 @@ public class ProductoServiceImpl implements ProductoService {
         producto.setFechaDeCreacion(LocalDate.now());
         producto.setFechaActualizacion(LocalDate.now());
         return productoRepository.save(producto);
+    }
+
+    @Override
+    public Producto getProductoById(UUID id){
+        return productoRepository.findById(id).get();
     }
 }
