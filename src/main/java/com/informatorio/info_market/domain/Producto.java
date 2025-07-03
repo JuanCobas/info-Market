@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Primary;
 
 import java.sql.SQLType;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,6 +25,9 @@ public class Producto {
     private int stock;
     private LocalDate fechaDeCreacion;
     private LocalDate fechaActualizacion;
+
+    @ManyToMany
+    private List<Categoria> categorias;
 
     public Producto(){}
 
